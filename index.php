@@ -55,7 +55,7 @@
     if ($link->connect_error) {
       die("Connection failed: " . $link->connect_error);
     }
-    $sql = "SELECT id, tododay  FROM todo WHERE usertodo ='Loc'";
+    $sql = "SELECT id, tododay  FROM todo WHERE usertodo ='Loc' AND donedate != CURRENT_DATE() ";
     $result = mysqli_query($link,$sql);
 
     ?>  
@@ -119,7 +119,7 @@ $("span.halo").on("click",function(){
      var idstr = this.id;
     //  var firstDivID = $(this).getElementByTagName("button").id;
   console.log(idstr);
-  if(confirm("Are you sure you want to delete for today this?"))
+  if(confirm("You done this task today, it will show back tommorrow.\n Congratulations!"))
  	{
     $.ajax({
         url: 'server.php',
