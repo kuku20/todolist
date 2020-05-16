@@ -79,8 +79,33 @@
 
 		</ul>
 
-	<!-- 	<h1> Specical Todo<i class="fa fa-plus"></i></h1>
-		<input type="text" name="" placeholder="Add New Todo"> -->
+		<h1> Specical Todo</h1>
+		<ul>
+
+    <?php
+ 
+    $sql = "SELECT *  FROM events WHERE userEvent ='kuku20' AND start = CURRENT_DATE()  ";
+    $result = mysqli_query($link,$sql);
+
+    ?>  
+
+    <?php
+     while($row = mysqli_fetch_array($result)) {  
+      $ids=$row['id'];     
+      $start = $row['start'];
+      $tododay = $row['title'];
+           ?>
+           <p>
+        <li> <span id="<? echo $row['id'] ?>" class="halo"  ><i class="fa fa-trash"></i></span> 
+        <strong><? echo $tododay ?>,6) </strong>  <span><? echo $start ?></span> 
+       </li>
+       </p>
+     <?php }
+     
+   
+    ?>
+    
+    </ul>
 
 	</div>
 
